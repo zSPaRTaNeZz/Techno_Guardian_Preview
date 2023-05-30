@@ -1,0 +1,12 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Font/card2/Kalam-Regular.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 20
+use_filter = true
+extra_spacing_top = -22
+extra_spacing_bottom = 2
+extra_spacing_char = -1
+extra_spacing_space = -4
+font_data = ExtResource( 1 )

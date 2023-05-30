@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scene/Sup/CardTemplate.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Card/slice62.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Card/slice66.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Card/slice45.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Card/slice68.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Card/BaseCardImage1.png" type="Texture" id=6]
+[ext_resource path="res://Font/card_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Font/card_price_font.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Font/card_des_font.tres" type="DynamicFont" id=9]
+
+[node name="CardTemplate" type="TextureButton"]
+margin_right = 120.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 120, 180 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 0.176471, 0.227451, 0.254902, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+self_modulate = Color( 0.941176, 0.815686, 0.513726, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -85.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Description" type="TextureRect" parent="."]
+self_modulate = Color( 0.839216, 0.811765, 0.741176, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -55.0
+margin_top = -70.0
+margin_right = 55.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="Description"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -2.0
+margin_bottom = -4.0
+custom_fonts/font = ExtResource( 9 )
+text = "same sort of info"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Name" type="TextureRect" parent="."]
+self_modulate = Color( 0.839216, 0.811765, 0.741176, 1 )
+margin_left = 3.0
+margin_top = 89.0
+margin_right = 117.0
+margin_bottom = 114.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="Name"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+margin_left = 29.0
+margin_right = -27.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 7 )
+text = "name"
+align = 1
+autowrap = true
+
+[node name="Price" type="TextureRect" parent="."]
+margin_left = 101.0
+margin_top = -10.0
+margin_right = 131.0
+margin_bottom = 28.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="Price"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_right = 2.0
+custom_fonts/font = ExtResource( 8 )
+text = "20"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="." to="." method="_on_CardTemplate_pressed"]

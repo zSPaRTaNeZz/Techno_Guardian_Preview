@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Font/test_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scene/Sup/InGameMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/HUD/blue_button03.png" type="Texture" id=3]
+
+[node name="InGameMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.705882 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -430.0
+margin_right = 250.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 500, 860 )
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Resume" type="TextureButton" parent="VBoxContainer"]
+margin_left = 75.0
+margin_top = 257.0
+margin_right = 425.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Resume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Resume"
+align = 1
+valign = 1
+
+[node name="Settings" type="TextureButton" parent="VBoxContainer"]
+margin_left = 75.0
+margin_top = 372.0
+margin_right = 425.0
+margin_bottom = 447.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 487.0
+margin_right = 500.0
+margin_bottom = 487.0
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer"]
+margin_left = 75.0
+margin_top = 527.0
+margin_right = 425.0
+margin_bottom = 602.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

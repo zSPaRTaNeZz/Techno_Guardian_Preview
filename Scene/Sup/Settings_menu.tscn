@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scene/Sup/Settings_menu.gd" type="Script" id=1]
+[ext_resource path="res://Font/test_font.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxLine" id=1]
+thickness = 10
+
+[node name="Settings_menu" type="Popup"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -600.0
+margin_top = -380.0
+margin_right = 600.0
+margin_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.470588 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="General" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/General"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 140.0
+margin_top = 80.0
+margin_right = -140.0
+margin_bottom = -40.0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/General/MarginContainer"]
+margin_right = 912.0
+margin_bottom = 604.0
+columns = 2
+
+[node name="Fullscreen" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_right = 454.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fullscreen mode"
+
+[node name="Fullscreen button" type="CheckButton" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_left = 836.0
+margin_right = 912.0
+margin_bottom = 50.0
+size_flags_horizontal = 10
+
+[node name="WindowSize" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_top = 57.0
+margin_right = 454.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Window Size"
+
+[node name="SizeSelector" type="OptionButton" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_left = 458.0
+margin_top = 54.0
+margin_right = 912.0
+margin_bottom = 110.0
+custom_fonts/font = ExtResource( 2 )
+text = "1600x960"
+align = 2
+items = [ "1600x960", null, false, 0, null, "1366x768", null, false, 1, null, "1280x720", null, false, 2, null, "800x600", null, false, 3, null ]
+selected = 0
+
+[node name="MasterVolume" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_top = 114.0
+margin_right = 454.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 2 )
+text = "Master volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="TabContainer/General/MarginContainer/GridContainer"]
+margin_left = 458.0
+margin_top = 114.0
+margin_right = 912.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 9
+size_flags_vertical = 5
+custom_styles/slider = SubResource( 1 )
+value = 50.0
+
+[node name="Save" type="Button" parent="TabContainer/General"]
+margin_left = 410.0
+margin_top = 370.0
+margin_right = 712.0
+margin_bottom = 426.0
+custom_fonts/font = ExtResource( 2 )
+text = "Save settings"
+
+[node name="Return" type="Button" parent="TabContainer/General"]
+margin_left = 770.0
+margin_top = 370.0
+margin_right = 1072.0
+margin_bottom = 426.0
+custom_fonts/font = ExtResource( 2 )
+text = "Return"
+
+[connection signal="toggled" from="TabContainer/General/MarginContainer/GridContainer/Fullscreen button" to="." method="_on_Fullscreen_button_toggled"]
+[connection signal="item_selected" from="TabContainer/General/MarginContainer/GridContainer/SizeSelector" to="." method="_on_OptionButton_item_selected"]
+[connection signal="drag_ended" from="TabContainer/General/MarginContainer/GridContainer/MasterVolumeSlider" to="." method="_on_MasterVolumeSlider_drag_ended"]
+[connection signal="value_changed" from="TabContainer/General/MarginContainer/GridContainer/MasterVolumeSlider" to="." method="_on_MasterVolumeSlider_value_changed"]
+[connection signal="pressed" from="TabContainer/General/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="TabContainer/General/Return" to="." method="_on_Return_pressed"]
